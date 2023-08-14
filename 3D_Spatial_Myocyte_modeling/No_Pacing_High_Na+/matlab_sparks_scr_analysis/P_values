@@ -1,0 +1,46 @@
+[h1,p1] = ttest2(out_CKII.num_peaks, out_CKII_inh.num_peaks)
+
+[h2,p2] = ttest2(out_CKII_ISO.num_peaks, out_CKII_inh_ISO.num_peaks)
+
+[h3,p3] = ttest2(out_CKII_ISO.mean_amplitude, out_CKII_inh_ISO.mean_amplitude)
+
+[h4,p4] = ttest2(out_CKII_ISO.mean_duration, out_CKII_inh_ISO.mean_duration)
+
+h1 =
+
+     1
+
+
+p1 =
+
+   1.2563e-21
+
+
+h2 =
+
+     1
+
+
+p2 =
+
+   7.7414e-24
+
+
+h3 =
+
+     1
+
+
+p3 =
+
+   1.6773e-21
+
+
+h4 =
+
+     1
+
+
+p4 =
+
+   1.0570e-10

@@ -1,0 +1,64 @@
+
+#include "util.c"
+#include "conduction_with_diffusion_heterogeneity.c"
+#include "string.h"
+#define nz 298
+#define ny 269
+#define nx 235
+
+
+
+int main(int argc, char const *argv[])
+{
+    /* code */
+
+
+    char *theta_name, * phi_name;
+    theta_name = (char*) malloc(30 * sizeof(char));
+    phi_name = (char*) malloc(30 * sizeof(char));
+
+    sprintf(theta_name, "ATRIUM.theta.gz");
+    sprintf(phi_name, "ATRIUM.phi.gz");
+
+
+    unsigned char *** theta  = read_and_embed_geometry(theta_name, nz, ny, nx);
+ printf("aa");
+    unsigned char *** phi    = read_and_embed_geometry(phi_name,   nz, ny, nx);
+    printf("a");
+
+    float ***x = allocate_and_zero_3d_float(nz + 2, ny + 2, nx + 2);
+    float ***y = allocate_and_zero_3d_float(nz + 2, ny + 2, nx + 2);
+    float ***z = allocate_and_zero_3d_float(nz + 2, ny + 2, nx + 2);
+    calculate_fibre_unit_vectors(theta, phi, nz, ny, nx, z, y, x);
+    {
+        FILE *out;
+        out = fopen ("MIKE_atrium_fibre.vtk", "wt");
+
+        fprintf (out, "# vtk DataFile Version 3.0\n");
+        fprintf (out, "vtk output\n");
+        fprintf (out, "ASCII\n");
+        fprintf (out, "DATASET STRUCTURED_POINTS\n");
+        fprintf (out, "DIMENSIONS %d %d %d\n", nx, ny, nz);
+        fprintf (out, "SPACING 0.33 0.33 0.33\n");
+        fprintf (out, "ORIGIN 0 0 0\n");
+        fprintf (out, "POINT_DATA %d\n", (nz ) * (ny ) * (nx));
+        fprintf (out, "SCALARS HumanAtrium float 3\n");
+        fprintf (out, "LOOKUP_TABLE default\n");
+
+        int i, j, k;
+        float t, p;
+
+        for (k = 1; k < nz + 1; ++k) {
+            for (j = 1; j < ny + 1; ++j) {
+                for (i = 1; i < nx + 1; ++i) {
+
+                    fprintf(out, "%f %f %f ", x[k][j][i], y[k][j][i], z[k][j][i]);
+
+                }
+                fprintf(out, "\n");
+            }
+        }
+        fclose(out);
+    }
+    return 0;
+}
