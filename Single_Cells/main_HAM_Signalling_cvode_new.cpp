@@ -271,10 +271,10 @@ int main(int argc, char const *argv[])
 
 		// outfreq = 2;
 
-		if (count % outfreq == 0 and outputTime >=  1 * Total_time - 100e3 ) // 0*370e3 - 10)
+		if (count % outfreq == 0 and outputTime >= 0 * Total_time - 100e3 ) // 0*370e3 - 10)
 		{
-			// Atrial_wraper.cell.ECC_Module.print_to_file(outputTime, output_file);
-			Atrial_wraper.cell.ECC_Module.print_to_file_Vm_Ca(outputTime, output_file);
+			Atrial_wraper.cell.ECC_Module.print_to_file(outputTime, output_file);
+			// Atrial_wraper.cell.ECC_Module.print_to_file_Vm_Ca(outputTime, output_file);
 			// Atrial_wraper.cell.ECC_Module.LTCC.print_to_file(outputTime, output_file_LTCC);
 
 			// Atrial_wraper.cell.CaM_Module_dyad.print_to_file(outputTime, CaM_dyad_out);

@@ -6,4 +6,4 @@
 #SBATCH --cpus-per-task=1
 
 # bash run.sh
-python run_sim.py $1 $2 $3 $4
+python run_sim_population.py $1 $2 $3 $4
