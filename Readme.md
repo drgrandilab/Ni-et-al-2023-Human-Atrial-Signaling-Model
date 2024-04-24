@@ -26,3 +26,4 @@ H Ni, S Morotti, X Zhang, D Dobrev, E Grandi. Integrative human atrial modeling 
 * 2D_Tissue_modeling: source code for 2D simulations
 * 3D_Spatial_Myocyte_modeling: source code for running 3D spatial cell modeling
 * PV-like_Populations: source code for simulating PV-like myocytes
+* Matlab_Single_Cell: a copy of single cell model implemented in Matlab 
