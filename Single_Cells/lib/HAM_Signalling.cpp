@@ -243,7 +243,7 @@ void HAM_Signalling::Master_ODE_update_CVODE(double t/*, double *ydot*/) {
 	// cellRadius = 10.25;   // cell radius [um]
 	// Vcell = pi * cellRadius *cellRadius  * cellLength * 1e-15; // [L]
 	// Vmyo = 0.65 * Vcell; Vsl = 0.02 * Vcell; Vjunc = 1 * 0.0539 * .01 * Vcell;
-	// incorporate CaM diffusion between compartments//   CaM diffuses between compartments // 16:06:10, Mon, 04-March-2019, By Haibo
+	// incorporate CaM diffusion between compartments//   CaM diffuses between compartments 
 	double kDyadSL = 3.6363e-16;	// [L/msec]
 	double kSLmyo = 8.587e-15;     // [L/msec]
 	double k0Boff = 0.0014;        // [s^-1]
@@ -262,7 +262,7 @@ void HAM_Signalling::Master_ODE_update_CVODE(double t/*, double *ydot*/) {
 	// adding comments: diffusion of CaM between 3 compartments.
 
 	// ** NOTE: Btotdyad being sent to the dyad camODEfile is set to zero, but is used below for transfer between SL and dyad
-	double BtotDyad = 1.54 / 8.293e-4; // [uM] from the matlab code. but why? // 17:19:30, Mon, 04-March-2019, By Haibo, this value is also huge (compared to others)
+	double BtotDyad = 1.54 / 8.293e-4; // [uM] from the matlab code. this value is also huge (compared to others)
 
 	double Bdyad = BtotDyad - CaMtotDyad; // [uM dyad]
 	double J_cam_dyadSL = 1e-3 * (k0Boff * CaM_Module_dyad.y[0] - k0Bon * Bdyad * CaM_Module_sl.y[0]); // [uM/msec dyad]
@@ -306,7 +306,7 @@ void HAM_Signalling::Master_ODE_update(double t, double *ydot) {
 	cell_para.cell_CaM_para_dyad.Ca =  y[35] * 1e3;
 	cell_para.cell_CaM_para_sl.Ca   =  y[36] * 1e3;
 	cell_para.cell_CaM_para_cyto.Ca =  y[37] * 1e3;
-	// update CaMKII parameters here// 14:21:22, Mon, 04-March-2019, By Haibo
+	// update CaMKII parameters here
 
 
 	// CaMKII phosphorylation module
@@ -388,7 +388,7 @@ void HAM_Signalling::Master_ODE_update(double t, double *ydot) {
 	// cellRadius = 10.25;   // cell radius [um]
 	// Vcell = pi * cellRadius *cellRadius  * cellLength * 1e-15; // [L]
 	// Vmyo = 0.65 * Vcell; Vsl = 0.02 * Vcell; Vjunc = 1 * 0.0539 * .01 * Vcell;
-	// incorporate CaM diffusion between compartments//   CaM diffuses between compartments // 16:06:10, Mon, 04-March-2019, By Haibo
+	// incorporate CaM diffusion between compartments//   CaM diffuses between compartments 
 	double kDyadSL = 3.6363e-16;	// [L/msec]
 	double kSLmyo = 8.587e-15;     // [L/msec]
 	double k0Boff = 0.0014;        // [s^-1]
@@ -407,7 +407,7 @@ void HAM_Signalling::Master_ODE_update(double t, double *ydot) {
 	// adding comments: diffusion of CaM between 3 compartments.
 
 	// ** NOTE: Btotdyad being sent to the dyad camODEfile is set to zero, but is used below for transfer between SL and dyad
-	double BtotDyad = 1.54 / 8.293e-4; // [uM] from the matlab code. but why? // 17:19:30, Mon, 04-March-2019, By Haibo, this value is also huge (compared to others)
+	double BtotDyad = 1.54 / 8.293e-4; // [uM] from the matlab code. this value is also huge (compared to others)
 
 	double Bdyad = BtotDyad - CaMtotDyad; // [uM dyad]
 	double J_cam_dyadSL = 1e-3 * (k0Boff * CaM_Module_dyad.y[0] - k0Bon * Bdyad * CaM_Module_sl.y[0]); // [uM/msec dyad]
