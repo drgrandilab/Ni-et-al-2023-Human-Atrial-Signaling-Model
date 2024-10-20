@@ -1,6 +1,7 @@
 ### Source code for single cell, popoulations, and tissue modeling
 
-H Ni, S Morotti, X Zhang, D Dobrev, E Grandi. Integrative human atrial modeling unravels interactive PKA and CaMKII signaling as key determinant of atrial arrhythmogenesis. bioRxiv, 2022
+H Ni, S Morotti, X Zhang, D Dobrev, E Grandi. Integrative human atrial modelling unravels interactive protein kinase A and Ca2+/calmodulin-dependent protein kinase II signalling as key determinants of atrial arrhythmogenesis. 
+Cardiovasc Res. 2023 Oct 24;119(13):2294-2311. doi: 10.1093/cvr/cvad118. 
 
 - Compiler: intel icpc
 - Dependencies: CVODE and zlib
